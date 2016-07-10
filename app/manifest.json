@@ -1,0 +1,28 @@
+{
+  "short_name": "Say",
+  "name": "Say Whaft?",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "images/ic_launcher.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "images/ic_launcher1x.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "images/ic_launcher2x.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "images/ic_launcher3x.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone"
+}
