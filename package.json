@@ -20,6 +20,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "idb": "^1.1.1",
     "socket.io": "^1.4.8"
   }
 }

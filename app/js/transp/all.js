@@ -40,15 +40,17 @@ var postsArea = document.querySelector('main>section');
 var posts = new _posts2.default();
 function Main() {
 	var main = this;
-	if (io) {}
+
 	this._dbPromise = openDatabase();
 	this._showCachedMessages().then(function () {
-		var socket = io.connect('http://0.0.0.0:8080');
-		socket.on('say', function (msg) {
-			main._saveMessage(msg);
-			posts.createPost(postsArea, msg);
-			posts.checkPostsVolume(postsArea);
-		});
+		if (io) {
+			var socket = io.connect('http://0.0.0.0:8080');
+			socket.on('say', function (msg) {
+				main._saveMessage(msg);
+				posts.createPost(postsArea, msg);
+				posts.checkPostsVolume(postsArea);
+			});
+		}
 	});
 	this._registerSW();
 }

@@ -11,8 +11,8 @@ gulp.task('webserver', function() {
     .pipe(webserver({
       host:'localhost',
       port:8081,
-      livereload: true,
-      open: true
+      livereload: false,
+      open: false
     }));
 });
 

@@ -1,10 +1,10 @@
-var staticCacheName = 'say-what-v11';
+var staticCacheName = 'say-what-v100';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
       return cache.addAll([
-        '/index.html ',
+        '/',
         'style/main.css',
         'style/post.css',
         'js/transp/all.js',
