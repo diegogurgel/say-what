@@ -9,7 +9,7 @@ const source = require('vinyl-source-stream');
 gulp.task('webserver', function() {
   gulp.src('app')
     .pipe(webserver({
-      host:'localhost',
+      host:'127.0.0.1',
       port:8081,
       livereload: true,
       open: true
