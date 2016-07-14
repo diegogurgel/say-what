@@ -1,4 +1,5 @@
 var staticCacheName = 'say-what-v100';
+var imageCache = 'say-what-images-v1';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -13,8 +14,10 @@ self.addEventListener('install', function(event) {
   );
 });
 self.addEventListener('fetch',function(event){
+  
   var requestUrl = new URL(event.request.url);
   if(requestUrl.pathname.startsWith('/images')){
+    event.respondWith(serveProfileImage(event.request));
     return;
   }
 	event.respondWith(
@@ -23,3 +26,21 @@ self.addEventListener('fetch',function(event){
 		})
 	);
 });
+function serveProfileImage (request) {
+
+  return caches.open(imageCache).then(cache=>{
+
+    return cache.match(request.url).then(response=>{
+
+      if (response) return response;
+
+      return fetch(request).then(netResponse=>{
+
+        cache.put(request.url,netResponse.clone());
+        
+        return netResponse;
+      })
+
+    })
+  });
+}
