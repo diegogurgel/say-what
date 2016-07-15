@@ -19,7 +19,7 @@ let io = require('socket.io')(server.listener);
 
 this._send = function() {
 	setTimeout(()=>{
-		io.emit('say', messages.getRandom());
+		io.volatile.emit('say', messages.getRandom());
 		this._send();
 	},20000);
 }
